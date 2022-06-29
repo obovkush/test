@@ -4,6 +4,7 @@ import { Context } from '../../index';
 
 const MainPage = () => {
   const { user } = useContext(Context);
+
   const username = localStorage.getItem('username');
 
   return (

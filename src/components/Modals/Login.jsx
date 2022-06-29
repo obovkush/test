@@ -17,7 +17,7 @@ import {
 const Login = ({ isOpen, onClose }) => {
   const { user } = useContext(Context);
   const navigate = useNavigate();
-  const [username, setusername] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState({});
   const [btnLoading, setBtnLoading] = useState(false);
@@ -25,10 +25,10 @@ const Login = ({ isOpen, onClose }) => {
   const handleBtnClick = async () => {
     setBtnLoading(true);
     try {
-      const dataFromServer = await login(username, password);
-      user.setUser(dataFromServer.user);
-      localStorage.setItem('username', username);
+      await login(username, password);
       user.setIsAuth(true);
+      localStorage.setItem('username', username);
+
       navigate(MAIN_ROUTE);
       setBtnLoading(false);
       onClose();
@@ -58,14 +58,14 @@ const Login = ({ isOpen, onClose }) => {
             label='Имя'
             labelFor='username'
             labelInfo='*'
-            helperText={username.length ? '' : 'Введите имя'}
+            helperText={username.length ? '' : 'Поле не должно быть пустым'}
           >
             <InputGroup
               id='username'
               name='username'
               value={username}
-              onChange={(e) => setusername(e.target.value)}
-              // type='username'
+              onChange={(e) => setUsername(e.target.value)}
+              type='text'
               placeholder='Введите имя'
             />
           </FormGroup>
@@ -73,11 +73,13 @@ const Login = ({ isOpen, onClose }) => {
             label='Пароль'
             labelFor='password'
             labelInfo='*'
-            // helperText={
-            //   error.message
-            //     ? `Не авторизован. Код ошибки: ${error.response.data.status}. Проверьте правильность ввода учетных данных.`
-            //     : ''
-            // }
+            helperText={
+              !password.length
+                ? 'Поле не должно быть пустым'
+                : error.message
+                ? `Ошибка. Проверьте правильность ввода учетных данных.`
+                : ''
+            }
           >
             <InputGroup
               id='password'

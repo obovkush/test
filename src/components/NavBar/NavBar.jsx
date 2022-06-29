@@ -34,16 +34,6 @@ const NavBar = observer(() => {
             </button>
           </div>
           <div className='bp4-navbar-group bp4-align-right'>
-            {user.isAuth && (
-              <button className='bp4-button bp4-minimal bp4-icon-document'>
-                <Link
-                  to={CONTENT_ROUTE}
-                  style={{ textDecoration: 'none', color: 'inherit' }}
-                >
-                  Контент
-                </Link>
-              </button>
-            )}
             <span className='bp4-navbar-divider'></span>
             {user.isAuth ? (
               <button
