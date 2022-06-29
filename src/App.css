@@ -1,0 +1,70 @@
+@import '~normalize.css';
+@import '~@blueprintjs/core/lib/css/blueprint.css';
+@import '~@blueprintjs/icons/lib/css/blueprint-icons.css';
+
+.container-fluid {
+  max-width: 1200px;
+}
+
+.content__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.content__item-name {
+  font-weight: 700;
+  color: rgb(3, 93, 148);
+}
+
+.content__box {
+  text-align: center;
+}
+
+.page-title {
+  color: #383e47;
+}
+
+.content__info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0 0;
+  padding: 0 60px;
+}
+
+.content__info-limit {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.content__info-limit--select {
+  margin-left: 10px;
+}
+
+.content__pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin: 20px auto 0;
+  color: gray;
+}
+
+.content__pagination > button {
+  outline: none;
+}
+
+.content__pages-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.bp4-button.bp4-outlined:active,
+.bp4-button.bp4-outlined.bp4-active {
+  background-color: orange !important;
+  border-color: orange !important;
+  color: white !important;
+  outline: none;
+}
